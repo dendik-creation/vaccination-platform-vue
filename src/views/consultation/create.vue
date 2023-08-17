@@ -77,6 +77,7 @@
 <script>
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { BASE_URL } from "../../components/base_url.vue";
 export default {
   data() {
     return {
@@ -117,7 +118,7 @@ export default {
     },
     async store() {
       await axios
-        .post("http://127.0.0.1:8000/api/v1/consultations", this.form, {
+        .post(`${BASE_URL}/v1/consultations`, this.form, {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

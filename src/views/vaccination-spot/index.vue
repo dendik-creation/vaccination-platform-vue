@@ -117,6 +117,7 @@
 <script>
 import axios from "axios";
 import { useRoute } from "vue-router";
+import { BASE_URL } from "../../components/base_url.vue";
 export default {
   data() {
     return {
@@ -132,7 +133,7 @@ export default {
   },
   methods: {
     async getSpots() {
-      const response = await axios.get("http://127.0.0.1:8000/api/v1/spots", {
+      const response = await axios.get(`${BASE_URL}/v1/spots`, {
         headers: {
           Authorization: `Bearer ${this.token}`,
         },
@@ -140,14 +141,11 @@ export default {
       this.spots = response.data.spots;
     },
     async getVaccke() {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/api/v1/vaccinations",
-        {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/v1/vaccinations`, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
       this.vacKe = response.data.vaccinations.first.status;
     },
   },

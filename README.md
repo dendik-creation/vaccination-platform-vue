@@ -1,6 +1,6 @@
 # Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Vaccination Platform Frontend With Vue 3 + Vite
 
 ## Recommended IDE Setup
 
@@ -12,24 +12,16 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+1. Run
+
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+2. Rename .env.example file to .env
+
+### Run Development
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```

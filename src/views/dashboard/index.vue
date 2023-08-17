@@ -278,6 +278,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
+import { BASE_URL } from "../../components/base_url.vue";
 export default {
   data() {
     return {
@@ -297,26 +298,20 @@ export default {
   },
   methods: {
     async myConsultation() {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/api/v1/consultations",
-        {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/v1/consultations`, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
       this.consultation = response.data.data.consultation;
       this.consulStatus = response.data.data.consultation.status;
     },
     async myVaccination() {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/api/v1/vaccinations",
-        {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/v1/vaccinations`, {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      });
       this.vaccination = response.data.vaccinations;
       this.vac1 = response.data.vaccinations.first.status;
       this.vac2 = response.data.vaccinations.second.status;

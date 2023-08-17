@@ -59,6 +59,7 @@
 <script>
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { BASE_URL } from "../components/base_url.vue";
 export default {
   data() {
     return {
@@ -77,7 +78,7 @@ export default {
   methods: {
     async store() {
       await axios
-        .post("http://127.0.0.1:8000/api/v1/auth/login", this.credentials)
+        .post(`${BASE_URL}/v1/auth/login`, this.credentials)
         .then((result) => {
           localStorage.setItem("token", result.data.token.plainTextToken);
           localStorage.setItem("regional", result.data.regional.district);

@@ -95,6 +95,7 @@
 <script>
 import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
+import { BASE_URL } from "../../components/base_url.vue";
 export default {
   data() {
     return {
@@ -124,7 +125,7 @@ export default {
     async getSpot() {
       console.log(this.form.date);
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/v1/spots/${this.route.params.id}`,
+        `${BASE_URL}/v1/spots/${this.route.params.id}`,
         {
           headers: {
             Authorization: `Bearer ${this.token}`,
@@ -140,7 +141,7 @@ export default {
     },
     async store() {
       await axios
-        .post("http://127.0.0.1:8000/api/v1/vaccinations", this.form, {
+        .post(`${BASE_URL}/v1/vaccinations`, this.form, {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },
